@@ -12,6 +12,11 @@
 		64463CDB198400B40074757F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64463CDA198400B40074757F /* Images.xcassets */; };
 		64463CDE198400B50074757F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64463CDC198400B50074757F /* MainMenu.xib */; };
 		64463CEA198400B50074757F /* CastCommanderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64463CE9198400B50074757F /* CastCommanderTests.swift */; };
+		64463D0419844DCE0074757F /* OpenCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64463D0119844D790074757F /* OpenCast.framework */; };
+		64463D0519844DD20074757F /* OpenCast.framework in Resources */ = {isa = PBXBuildFile; fileRef = 64463D0119844D790074757F /* OpenCast.framework */; };
+		64463D0719844FB10074757F /* ControlWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64463D0619844FB10074757F /* ControlWindowController.xib */; };
+		64463D09198450710074757F /* ControlWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64463D08198450710074757F /* ControlWindowController.swift */; };
+		645C127B1985A9A100CF23B3 /* MediaWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 645C127A1985A9A100CF23B3 /* MediaWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -21,6 +26,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 64463CD0198400B40074757F;
 			remoteInfo = CastCommander;
+		};
+		64463D0019844D790074757F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64463CFB19844D790074757F /* OpenCast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 641D83C9196CB592001700EC;
+			remoteInfo = OpenCast;
+		};
+		64463D0219844D790074757F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64463CFB19844D790074757F /* OpenCast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 641D83E0196CB592001700EC;
+			remoteInfo = OpenCastTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -34,6 +53,11 @@
 		64463CE3198400B50074757F /* CastCommanderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CastCommanderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64463CE8198400B50074757F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64463CE9198400B50074757F /* CastCommanderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCommanderTests.swift; sourceTree = "<group>"; };
+		64463CF8198441140074757F /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		64463CFB19844D790074757F /* OpenCast.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenCast.xcodeproj; path = ../Bipolar/OpenCast/OpenCast.xcodeproj; sourceTree = "<group>"; };
+		64463D0619844FB10074757F /* ControlWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlWindowController.xib; sourceTree = "<group>"; };
+		64463D08198450710074757F /* ControlWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlWindowController.swift; sourceTree = "<group>"; };
+		645C127A1985A9A100CF23B3 /* MediaWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MediaWindowController.xib; path = ../MediaWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64463D0419844DCE0074757F /* OpenCast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +84,7 @@
 			children = (
 				64463CD3198400B40074757F /* CastCommander */,
 				64463CE6198400B50074757F /* CastCommanderTests */,
+				64463CF719843D880074757F /* Frameworks */,
 				64463CD2198400B40074757F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,7 +101,10 @@
 		64463CD3198400B40074757F /* CastCommander */ = {
 			isa = PBXGroup;
 			children = (
+				645C127A1985A9A100CF23B3 /* MediaWindowController.xib */,
 				64463CD8198400B40074757F /* AppDelegate.swift */,
+				64463D08198450710074757F /* ControlWindowController.swift */,
+				64463D0619844FB10074757F /* ControlWindowController.xib */,
 				64463CDA198400B40074757F /* Images.xcassets */,
 				64463CDC198400B50074757F /* MainMenu.xib */,
 				64463CD4198400B40074757F /* Supporting Files */,
@@ -88,6 +117,7 @@
 			children = (
 				64463CD5198400B40074757F /* Info.plist */,
 				64463CD6198400B40074757F /* main.swift */,
+				64463CF8198441140074757F /* Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -107,6 +137,23 @@
 				64463CE8198400B50074757F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		64463CF719843D880074757F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64463CFB19844D790074757F /* OpenCast.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		64463CFC19844D790074757F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				64463D0119844D790074757F /* OpenCast.framework */,
+				64463D0319844D790074757F /* OpenCastTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +223,12 @@
 			mainGroup = 64463CC8198400B40074757F;
 			productRefGroup = 64463CD2198400B40074757F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 64463CFC19844D790074757F /* Products */;
+					ProjectRef = 64463CFB19844D790074757F /* OpenCast.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				64463CD0198400B40074757F /* CastCommander */,
@@ -184,13 +237,33 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		64463D0119844D790074757F /* OpenCast.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OpenCast.framework;
+			remoteRef = 64463D0019844D790074757F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		64463D0319844D790074757F /* OpenCastTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OpenCastTests.xctest;
+			remoteRef = 64463D0219844D790074757F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		64463CCF198400B40074757F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				64463CDB198400B40074757F /* Images.xcassets in Resources */,
+				645C127B1985A9A100CF23B3 /* MediaWindowController.xib in Resources */,
 				64463CDE198400B50074757F /* MainMenu.xib in Resources */,
+				64463D0519844DD20074757F /* OpenCast.framework in Resources */,
+				64463D0719844FB10074757F /* ControlWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +283,7 @@
 			files = (
 				64463CD9198400B40074757F /* AppDelegate.swift in Sources */,
 				64463CD7198400B40074757F /* main.swift in Sources */,
+				64463D09198450710074757F /* ControlWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,9 +399,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OpenCast-fodvklbwfkhrowfpjohoareqbkdn/Build/Products/Debug",
+				);
 				INFOPLIST_FILE = CastCommander/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CastCommander/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -336,9 +416,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OpenCast-fodvklbwfkhrowfpjohoareqbkdn/Build/Products/Debug",
+				);
 				INFOPLIST_FILE = CastCommander/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CastCommander/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -397,6 +483,7 @@
 				64463CEF198400B50074757F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		64463CF0198400B50074757F /* Build configuration list for PBXNativeTarget "CastCommanderTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +492,7 @@
 				64463CF2198400B50074757F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
