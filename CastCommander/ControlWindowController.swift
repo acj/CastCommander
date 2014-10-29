@@ -112,12 +112,10 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
     
     @IBAction func sliderDidMove(sender: NSSlider) {
         assert(self.mediaDuration != nil)
-        NSLog("Slider did move")
         
         if (sender == seekSlider) {
             if (self.mediaDuration != nil) {
                 let seekPercentage = self.seekSlider.doubleValue / 100.0;
-                NSLog("duration: %f", self.mediaDuration!)
                 seekToPosition(seekPercentage * self.mediaDuration!)
             }
         } else if (sender == volumeSlider) {
