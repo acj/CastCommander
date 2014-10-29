@@ -51,11 +51,14 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
         playbackDurationTimeText.title = "00:00"
     }
     
+    func enableConnectUI(enable: Bool) {
+        connectButton.enabled = enable
+        disconnectButton.enabled = !enable
+    }
+    
     func enableLoadUI(enable: Bool) {
-        connectButton.enabled = !enable
-        disconnectButton.enabled = enable
+        urlTextField.enabled = enable
         loadButton.enabled = enable
-        muteButton.enabled = enable
     }
     
     func enableAppControlUI(enable: Bool) {
@@ -65,7 +68,7 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
     }
     
     func enablePlayUI(enable: Bool) {
-        var buttons: NSArray = [playButton, pauseButton, stopButton, seekSlider];
+        var buttons: NSArray = [muteButton, playButton, pauseButton, stopButton, seekSlider, volumeSlider];
         for button in buttons {
             if let b = button as? NSControl {
                 b.enabled = enable
@@ -98,6 +101,7 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
         case disconnectButton:
             self.deviceManager?.disconnect()
 
+            enableConnectUI(true)
             enableLoadUI(false)
             enableAppControlUI(false)
             enablePlayUI(false)
@@ -188,7 +192,7 @@ extension ControlWindowController: OCDeviceManagerDelegate {
         
         deviceManager?.addChannel(self.receiverApp)
         
-        enableLoadUI(true)
+        enableConnectUI(false)
         enableAppControlUI(true)
         
         if let deviceName = self.device?.friendlyName {
@@ -217,7 +221,6 @@ extension ControlWindowController: OCDefaultMediaReceiverControllerDelegate {
     }
     
     func mediaDidLoadSuccessfully() {
-        enableLoadUI(true)
         enablePlayUI(true)
     }
     
