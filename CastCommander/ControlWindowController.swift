@@ -10,6 +10,9 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
     @IBOutlet weak var connectButton: NSButton!
     @IBOutlet weak var disconnectButton: NSButton!
     @IBOutlet weak var connectedToTextFieldCell: NSTextFieldCell!
+    @IBOutlet weak var launchButton: NSButton!
+    @IBOutlet weak var joinButton: NSButton!
+    @IBOutlet weak var stopAppButton: NSButton!
     @IBOutlet weak var urlTextField: NSTextFieldCell!
     @IBOutlet weak var loadButton: NSButton!
     @IBOutlet weak var playButton: NSButton!
@@ -54,6 +57,12 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
         muteButton.enabled = enable
     }
     
+    func enableAppControlUI(enable: Bool) {
+        launchButton.enabled = enable
+        joinButton.enabled = enable
+        stopAppButton.enabled = enable
+    }
+    
     func enablePlayUI(enable: Bool) {
         var buttons: NSArray = [playButton, pauseButton, stopButton, seekSlider];
         for button in buttons {
@@ -89,8 +98,15 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
             self.deviceManager?.disconnect()
 
             enableLoadUI(false)
+            enableAppControlUI(false)
             enablePlayUI(false)
             returnToDeviceSelectionWindow()
+        case launchButton:
+            self.deviceManager?.launchApplication(kOCMediaDefaultReceiverApplicationID);
+        case joinButton:
+            self.deviceManager?.joinApplication(kOCMediaDefaultReceiverApplicationID)
+        case stopAppButton:
+            self.deviceManager?.stopApplication()
         case playButton:
             play()
         case pauseButton:
@@ -171,7 +187,7 @@ extension ControlWindowController: OCDeviceManagerDelegate {
         
         deviceManager?.addChannel(self.receiverApp)
         
-        deviceManager?.launchApplication("CC1AD845");
+        enableAppControlUI(true)
         
         if let deviceName = self.device?.friendlyName {
             connectedToTextFieldCell.title = NSString(format: "Status: Connected to %@", deviceName)
@@ -180,6 +196,7 @@ extension ControlWindowController: OCDeviceManagerDelegate {
     
     func deviceManager(deviceManager: OCDeviceManager!, didDisconnectWithError error: NSError!) {
         enablePlayUI(false)
+        enableAppControlUI(false)
         enableLoadUI(false)
     }
 }

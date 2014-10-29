@@ -9,6 +9,8 @@
                 <outlet property="connectButton" destination="3rZ-iU-DNf" id="Ny5-CL-QAf"/>
                 <outlet property="connectedToTextFieldCell" destination="6td-D2-bKy" id="ss6-O4-lsz"/>
                 <outlet property="disconnectButton" destination="5bS-0R-Y6Q" id="4dg-VN-JgD"/>
+                <outlet property="joinButton" destination="GDW-j9-1tX" id="daq-bJ-wqE"/>
+                <outlet property="launchButton" destination="zhA-qS-8BY" id="rZ9-YQ-7gC"/>
                 <outlet property="loadButton" destination="6T9-z2-BnT" id="jfc-Ei-gb3"/>
                 <outlet property="muteButton" destination="eGc-Dm-Rds" id="mRl-CZ-HTx"/>
                 <outlet property="pauseButton" destination="Xmx-js-8QN" id="Qr6-wh-SVa"/>
@@ -18,7 +20,8 @@
                 <outlet property="playbackDurationTimeLabel" destination="Euc-eZ-rOw" id="fz8-cW-C3o"/>
                 <outlet property="playbackDurationTimeText" destination="LrQ-TP-fZH" id="AbE-b1-Tv2"/>
                 <outlet property="seekSlider" destination="Vnz-mQ-H3n" id="CI8-Li-8oA"/>
-                <outlet property="stopButton" destination="GlR-ly-Yfj" id="d3X-E6-Jsj"/>
+                <outlet property="stopAppButton" destination="fIh-fC-QRP" id="8mB-b4-mbv"/>
+                <outlet property="stopButton" destination="GlR-ly-Yfj" id="ph6-cX-Ktx"/>
                 <outlet property="urlTextField" destination="YxI-re-6d5" id="1DL-Fp-rWk"/>
                 <outlet property="volumeSlider" destination="rSG-jj-i2a" id="Jcy-Wu-qcU"/>
             </connections>
@@ -28,14 +31,14 @@
         <window title="CastCommander" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="214"/>
+            <rect key="contentRect" x="196" y="240" width="480" height="254"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="214"/>
+                <rect key="frame" x="0.0" y="0.0" width="480" height="254"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bS-0R-Y6Q">
-                        <rect key="frame" x="382" y="175" width="78" height="19"/>
+                        <rect key="frame" x="382" y="215" width="78" height="19"/>
                         <buttonCell key="cell" type="roundRect" title="Disconnect" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aOO-wg-HEJ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
@@ -45,7 +48,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3rZ-iU-DNf">
-                        <rect key="frame" x="312" y="175" width="62" height="19"/>
+                        <rect key="frame" x="312" y="215" width="62" height="19"/>
                         <buttonCell key="cell" type="roundRect" title="Connect" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nLj-fD-m0H">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
@@ -55,7 +58,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suY-Hf-mfZ">
-                        <rect key="frame" x="20" y="177" width="286" height="17"/>
+                        <rect key="frame" x="20" y="217" width="286" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="Status: Disconnected" id="6td-D2-bKy">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -172,9 +175,47 @@
                             <action selector="performClick:" target="-2" id="ome-ad-3r1"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gz9-mD-A0c">
+                        <rect key="frame" x="22" y="179" width="284" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="Current app: &lt;none&gt;" id="URP-jj-Doe">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDW-j9-1tX">
+                        <rect key="frame" x="309" y="170" width="66" height="32"/>
+                        <buttonCell key="cell" type="push" title="Join" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="E3J-ge-HqJ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="performClick:" target="-2" id="FGz-oE-SZN"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIh-fC-QRP">
+                        <rect key="frame" x="386" y="170" width="70" height="32"/>
+                        <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XZL-ex-HCv">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="performClick:" target="-2" id="977-3R-69y"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhA-qS-8BY">
+                        <rect key="frame" x="214" y="170" width="86" height="32"/>
+                        <buttonCell key="cell" type="push" title="Launch" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZoH-I6-lyn">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="performClick:" target="-2" id="Jev-V9-fXi"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="316" y="191"/>
+            <point key="canvasLocation" x="316" y="211"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="v6X-F3-jcd"/>
     </objects>
