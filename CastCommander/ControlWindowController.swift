@@ -211,6 +211,8 @@ extension ControlWindowController: OCDefaultMediaReceiverControllerDelegate {
     
     func applicationFailedToLaunchWithError(reason: String!) {
         NSLog("Failed to launch: %@", reason)
+        enableLoadUI(false)
+        enablePlayUI(false)
     }
     
     func mediaDidLoadSuccessfully() {
