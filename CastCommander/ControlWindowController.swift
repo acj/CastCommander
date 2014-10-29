@@ -86,6 +86,8 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
         case connectButton:
             connectToDevice(self.device)
         case disconnectButton:
+            self.deviceManager?.disconnect()
+
             enableLoadUI(false)
             enablePlayUI(false)
             returnToDeviceSelectionWindow()
