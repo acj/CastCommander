@@ -10,6 +10,7 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
     @IBOutlet weak var connectButton: NSButton!
     @IBOutlet weak var disconnectButton: NSButton!
     @IBOutlet weak var connectedToTextFieldCell: NSTextFieldCell!
+    @IBOutlet weak var connectedToAppTextFieldCell: NSTextFieldCell!
     @IBOutlet weak var launchButton: NSButton!
     @IBOutlet weak var joinButton: NSButton!
     @IBOutlet weak var stopAppButton: NSButton!
@@ -223,6 +224,13 @@ extension ControlWindowController: OCDefaultMediaReceiverControllerDelegate {
     func mediaReceiverController(controller: OCDefaultMediaReceiverController!, statusDidUpdate receiverStatus: OCMediaReceiverStatus!) {
         self.volumeSlider.floatValue = receiverStatus.volumeLevel * 100.0
         self.muteButton.state = receiverStatus.volumeMuted ? NSOnState : NSOffState
+        
+        var runningAppId = "<none>"
+        if let firstRunningApp = receiverStatus.applications.firstObject as? OCMediaReceiverApplication {
+            runningAppId = firstRunningApp.appId as NSString
+        }
+        
+        self.connectedToAppTextFieldCell.title = NSString(format: "Current app: %@", runningAppId)
     }
 
     func mediaReceiverController(controller: OCDefaultMediaReceiverController!, mediaStatusDidUpdate mediaStatus: OCMediaStatus!) {

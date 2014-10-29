@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ControlWindowController" customModule="CastCommander" customModuleProvider="target">
             <connections>
                 <outlet property="connectButton" destination="3rZ-iU-DNf" id="Ny5-CL-QAf"/>
+                <outlet property="connectedToAppTextFieldCell" destination="URP-jj-Doe" id="ik1-9K-tcV"/>
                 <outlet property="connectedToTextFieldCell" destination="6td-D2-bKy" id="ss6-O4-lsz"/>
                 <outlet property="disconnectButton" destination="5bS-0R-Y6Q" id="4dg-VN-JgD"/>
                 <outlet property="joinButton" destination="GDW-j9-1tX" id="daq-bJ-wqE"/>
@@ -73,7 +74,7 @@
                     </box>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Chh-5D-vnL">
                         <rect key="frame" x="55" y="130" width="405" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="http://commondatastorage.googleapis.com/gtv-videos-bucket/ED_1280.mp4" drawsBackground="YES" id="YxI-re-6d5">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="http://commondatastorage.googleapis.com/gtv-videos-bucket/ED_1280.mp4" drawsBackground="YES" id="YxI-re-6d5">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -160,14 +161,14 @@
                     </button>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSG-jj-i2a">
                         <rect key="frame" x="63" y="72" width="134" height="21"/>
-                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="XzA-eJ-8KE"/>
+                        <sliderCell key="cell" enabled="NO" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="XzA-eJ-8KE"/>
                         <connections>
                             <action selector="sliderDidMove:" target="-2" id="mSX-Cs-unm"/>
                         </connections>
                     </slider>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eGc-Dm-Rds">
                         <rect key="frame" x="15" y="55" width="43" height="19"/>
-                        <buttonCell key="cell" type="roundRect" title="Mute" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bX9-zd-7n2">
+                        <buttonCell key="cell" type="roundRect" title="Mute" bezelStyle="roundedRect" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bX9-zd-7n2">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
@@ -176,7 +177,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gz9-mD-A0c">
-                        <rect key="frame" x="22" y="179" width="284" height="17"/>
+                        <rect key="frame" x="20" y="179" width="284" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="Current app: &lt;none&gt;" id="URP-jj-Doe">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
