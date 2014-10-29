@@ -187,6 +187,7 @@ extension ControlWindowController: OCDeviceManagerDelegate {
         
         deviceManager?.addChannel(self.receiverApp)
         
+        enableLoadUI(true)
         enableAppControlUI(true)
         
         if let deviceName = self.device?.friendlyName {
