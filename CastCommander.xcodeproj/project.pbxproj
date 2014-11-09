@@ -11,8 +11,6 @@
 		64463CD9198400B40074757F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64463CD8198400B40074757F /* AppDelegate.swift */; };
 		64463CDB198400B40074757F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64463CDA198400B40074757F /* Images.xcassets */; };
 		64463CDE198400B50074757F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64463CDC198400B50074757F /* MainMenu.xib */; };
-		64463CEA198400B50074757F /* CastCommanderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64463CE9198400B50074757F /* CastCommanderTests.swift */; };
-		64463D0419844DCE0074757F /* OpenCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64463D0119844D790074757F /* OpenCast.framework */; };
 		64463D0519844DD20074757F /* OpenCast.framework in Resources */ = {isa = PBXBuildFile; fileRef = 64463D0119844D790074757F /* OpenCast.framework */; };
 		64463D0719844FB10074757F /* ControlWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64463D0619844FB10074757F /* ControlWindowController.xib */; };
 		64463D09198450710074757F /* ControlWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64463D08198450710074757F /* ControlWindowController.swift */; };
@@ -20,13 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		64463CE4198400B50074757F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 64463CC9198400B40074757F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 64463CD0198400B40074757F;
-			remoteInfo = CastCommander;
-		};
 		64463D0019844D790074757F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 64463CFB19844D790074757F /* OpenCast.xcodeproj */;
@@ -45,14 +36,10 @@
 
 /* Begin PBXFileReference section */
 		64463CD1198400B40074757F /* CastCommander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CastCommander.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		64463CD5198400B40074757F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64463CD6198400B40074757F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		64463CD8198400B40074757F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64463CDA198400B40074757F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		64463CDD198400B50074757F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		64463CE3198400B50074757F /* CastCommanderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CastCommanderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		64463CE8198400B50074757F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64463CE9198400B50074757F /* CastCommanderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCommanderTests.swift; sourceTree = "<group>"; };
 		64463CF8198441140074757F /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		64463CFB19844D790074757F /* OpenCast.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenCast.xcodeproj; path = ../Bipolar/OpenCast/OpenCast.xcodeproj; sourceTree = "<group>"; };
 		64463D0619844FB10074757F /* ControlWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlWindowController.xib; sourceTree = "<group>"; };
@@ -62,14 +49,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		64463CCE198400B40074757F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				64463D0419844DCE0074757F /* OpenCast.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		64463CE0198400B50074757F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -83,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				64463CD3198400B40074757F /* CastCommander */,
-				64463CE6198400B50074757F /* CastCommanderTests */,
 				64463CF719843D880074757F /* Frameworks */,
 				64463CD2198400B40074757F /* Products */,
 			);
@@ -93,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				64463CD1198400B40074757F /* CastCommander.app */,
-				64463CE3198400B50074757F /* CastCommanderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,26 +92,8 @@
 		64463CD4198400B40074757F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				64463CD5198400B40074757F /* Info.plist */,
 				64463CD6198400B40074757F /* main.swift */,
 				64463CF8198441140074757F /* Bridging-Header.h */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		64463CE6198400B50074757F /* CastCommanderTests */ = {
-			isa = PBXGroup;
-			children = (
-				64463CE9198400B50074757F /* CastCommanderTests.swift */,
-				64463CE7198400B50074757F /* Supporting Files */,
-			);
-			path = CastCommanderTests;
-			sourceTree = "<group>";
-		};
-		64463CE7198400B50074757F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				64463CE8198400B50074757F /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -176,24 +135,6 @@
 			productReference = 64463CD1198400B40074757F /* CastCommander.app */;
 			productType = "com.apple.product-type.application";
 		};
-		64463CE2198400B50074757F /* CastCommanderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 64463CF0198400B50074757F /* Build configuration list for PBXNativeTarget "CastCommanderTests" */;
-			buildPhases = (
-				64463CDF198400B50074757F /* Sources */,
-				64463CE0198400B50074757F /* Frameworks */,
-				64463CE1198400B50074757F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				64463CE5198400B50074757F /* PBXTargetDependency */,
-			);
-			name = CastCommanderTests;
-			productName = CastCommanderTests;
-			productReference = 64463CE3198400B50074757F /* CastCommanderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,10 +146,6 @@
 				TargetAttributes = {
 					64463CD0198400B40074757F = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					64463CE2198400B50074757F = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 64463CD0198400B40074757F;
 					};
 				};
 			};
@@ -232,7 +169,6 @@
 			projectRoot = "";
 			targets = (
 				64463CD0198400B40074757F /* CastCommander */,
-				64463CE2198400B50074757F /* CastCommanderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -267,13 +203,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		64463CE1198400B50074757F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -287,23 +216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		64463CDF198400B50074757F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				64463CEA198400B50074757F /* CastCommanderTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		64463CE5198400B50074757F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 64463CD0198400B40074757F /* CastCommander */;
-			targetProxy = 64463CE4198400B50074757F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		64463CDC198400B50074757F /* MainMenu.xib */ = {
@@ -428,42 +341,6 @@
 			};
 			name = Release;
 		};
-		64463CF1198400B50074757F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CastCommander.app/Contents/MacOS/CastCommander";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CastCommanderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		64463CF2198400B50074757F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CastCommander.app/Contents/MacOS/CastCommander";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CastCommanderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -481,15 +358,6 @@
 			buildConfigurations = (
 				64463CEE198400B50074757F /* Debug */,
 				64463CEF198400B50074757F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		64463CF0198400B50074757F /* Build configuration list for PBXNativeTarget "CastCommanderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				64463CF1198400B50074757F /* Debug */,
-				64463CF2198400B50074757F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
