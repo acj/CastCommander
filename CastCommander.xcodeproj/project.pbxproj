@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6422E64F1A3157C200728A95 /* OpenCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6422E64C1A3157B700728A95 /* OpenCast.framework */; };
+		6422E6531A315A9900728A95 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6422E6521A315A9900728A95 /* Info.plist */; };
 		64463CD7198400B40074757F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64463CD6198400B40074757F /* main.swift */; };
 		64463CD9198400B40074757F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64463CD8198400B40074757F /* AppDelegate.swift */; };
 		64463CDB198400B40074757F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64463CDA198400B40074757F /* Images.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		6422E6461A3157B700728A95 /* OpenCast.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenCast.xcodeproj; path = OpenCast/OpenCast.xcodeproj; sourceTree = "<group>"; };
+		6422E6521A315A9900728A95 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64463CD1198400B40074757F /* CastCommander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CastCommander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64463CD6198400B40074757F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		64463CD8198400B40074757F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		64463CD4198400B40074757F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6422E6521A315A9900728A95 /* Info.plist */,
 				64463CD6198400B40074757F /* main.swift */,
 				64463CF8198441140074757F /* Bridging-Header.h */,
 			);
@@ -199,6 +202,7 @@
 				64463CDB198400B40074757F /* Images.xcassets in Resources */,
 				645C127B1985A9A100CF23B3 /* MediaWindowController.xib in Resources */,
 				64463CDE198400B50074757F /* MainMenu.xib in Resources */,
+				6422E6531A315A9900728A95 /* Info.plist in Resources */,
 				64463D0719844FB10074757F /* ControlWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
