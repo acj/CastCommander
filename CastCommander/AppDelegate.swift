@@ -4,7 +4,9 @@
 
 import Cocoa
 
-class AppDelegate: NSObject, NSApplicationDelegate, OCDeviceManagerDelegate, OCDeviceScannerListener {
+@NSApplicationMain
+
+class AppDelegate: NSObject, NSApplicationDelegate {
                             
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var devicePopupButton: NSPopUpButton!
@@ -23,31 +25,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, OCDeviceManagerDelegate, OCD
         super.init()
     }
 
-    func applicationDidFinishLaunching(aNotification: NSNotification?) {
-        deviceScanner = OCDeviceScanner()
-        deviceScanner?.addListener(self)
-        deviceScanner?.startScan()
+    func applicationDidFinishLaunching(aNotification: NSNotification) {
+        let deviceScanner = OCDeviceScanner()
+        deviceScanner.addListener(self)
+        deviceScanner.startScan()
+      
+        self.deviceScanner = deviceScanner
     }
 
-    func applicationWillTerminate(aNotification: NSNotification?) {
+    func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
     
-    //MARK: - UI
+    // MARK: - UI
     
     @IBAction func clickButton(sender : NSButton) {
-        NSLog("clickButton")
-        
-        let selectedDevice = devices.objectAtIndex(devicePopupButton.indexOfSelectedItem) as OCDevice;
-        controlWindow = ControlWindowController(window: nil)
-        if (controlWindow != nil) {
-            controlWindow!.device = selectedDevice
-            controlWindow?.showWindow(self)
+        if let selectedDevice = devices.objectAtIndex(devicePopupButton.indexOfSelectedItem) as? OCDevice {
+            let controlWindow = ControlWindowController(window: nil)
+            controlWindow.device = selectedDevice
+            controlWindow.showWindow(self)
+            self.controlWindow = controlWindow
+          
+            window.orderOut(self)
         }
-        window.orderOut(self)
     }
     
-    //MARK: - Private
+    // MARK: - Private
     func refreshDeviceList() {
         devicePopupButton.removeAllItems()
         for device in devices {

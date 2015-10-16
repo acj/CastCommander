@@ -5,7 +5,7 @@
 import Cocoa
 import Foundation
 
-class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceManagerDelegate, OCDefaultMediaReceiverControllerDelegate {
+class ControlWindowController: NSWindowController {
     
     @IBOutlet weak var connectButton: NSButton!
     @IBOutlet weak var disconnectButton: NSButton!
@@ -37,7 +37,7 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
         super.init(window: window)
     }
 
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -68,21 +68,17 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
     }
     
     func enablePlayUI(enable: Bool) {
-        var buttons: NSArray = [muteButton, playButton, pauseButton, stopButton, seekSlider, volumeSlider];
-        for button in buttons {
-            if let b = button as? NSControl {
-                b.enabled = enable
-            }
-        }
+        let buttons: [NSControl] = [muteButton, playButton, pauseButton, stopButton, seekSlider, volumeSlider]
+        buttons.forEach { $0.enabled = enable }
     }
     
     func updateUIForMediaStatus(mediaStatus: OCMediaStatus) {
         let currentPosition: Double = mediaStatus.streamPosition
-        playbackCurrentTimeText.title = NSString(format: "%1.f:%02.f", currentPosition / 60, currentPosition % 60)
+        playbackCurrentTimeText.title = NSString(format: "%1.f:%02.f", currentPosition / 60, currentPosition % 60) as String
         playbackCurrentTimeLabel.setNeedsDisplay()
         
         let duration: Double = mediaStatus.mediaInformation.streamDuration
-        playbackDurationTimeText.title = NSString(format: "%1.f:%02.f", duration / 60, duration % 60)
+        playbackDurationTimeText.title = NSString(format: "%1.f:%02.f", duration / 60, duration % 60) as String
         playbackDurationTimeLabel.setNeedsDisplay()
         
         seekSlider.doubleValue = currentPosition / duration * 100
@@ -119,8 +115,8 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
         case stopButton:
             stop()
         case loadButton:
-            if (countElements(self.urlTextField.title) > 0) {
-                loadMedia(self.urlTextField.title)
+            if !urlTextField.title.isEmpty {
+                loadMedia(urlTextField.title)
             }
         case muteButton:
             if let currentlyMuted = self.receiverApp?.status.volumeMuted {
@@ -134,13 +130,13 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
     @IBAction func sliderDidMove(sender: NSSlider) {
         assert(self.mediaDuration != nil)
         
-        if (sender == seekSlider) {
-            if (self.mediaDuration != nil) {
-                let seekPercentage = self.seekSlider.doubleValue / 100.0;
-                seekToPosition(seekPercentage * self.mediaDuration!)
+        if sender == seekSlider {
+            if let mediaDuration = mediaDuration {
+                let seekPercentage = seekSlider.doubleValue / 100.0;
+                seekToPosition(seekPercentage * mediaDuration)
             }
-        } else if (sender == volumeSlider) {
-            setVolume(self.volumeSlider.doubleValue / 100.0)
+        } else if sender == volumeSlider {
+            setVolume(volumeSlider.doubleValue / 100.0)
         }
     }
 }
@@ -149,10 +145,10 @@ class ControlWindowController: NSWindowController, NSWindowDelegate, OCDeviceMan
 extension ControlWindowController {
     func connectToDevice(device: OCDevice?) {
         self.deviceManager = OCDeviceManager(device: device, clientPackageName: "org.linuxguy.CastCommander")
-        
-        if ((self.deviceManager) != nil) {
-            self.deviceManager!.delegate = self
-            self.deviceManager!.connect()
+      
+        if let deviceManager = deviceManager {
+            deviceManager.delegate = self
+            deviceManager.connect()
         }
     }
     
@@ -173,7 +169,7 @@ extension ControlWindowController {
     }
     
     func loadMedia(url: NSString) {
-        self.receiverApp?.loadMediaFromURL(url)
+        receiverApp?.loadMediaFromURL(url as String)
     }
     
     func setVolume(value: Double) {
@@ -196,7 +192,7 @@ extension ControlWindowController: OCDeviceManagerDelegate {
         enableAppControlUI(true)
         
         if let deviceName = self.device?.friendlyName {
-            connectedToTextFieldCell.title = NSString(format: "Status: Connected to %@", deviceName)
+            connectedToTextFieldCell.title = "Status: Connected to \(deviceName)"
         }
     }
     
@@ -230,10 +226,10 @@ extension ControlWindowController: OCDefaultMediaReceiverControllerDelegate {
         
         var runningAppId = "<none>"
         if let firstRunningApp = receiverStatus.applications.firstObject as? OCMediaReceiverApplication {
-            runningAppId = firstRunningApp.appId as NSString
+            runningAppId = firstRunningApp.appId
         }
         
-        self.connectedToAppTextFieldCell.title = NSString(format: "Current app: %@", runningAppId)
+        self.connectedToAppTextFieldCell.title = String(format: "Current app: %@", runningAppId)
     }
 
     func mediaReceiverController(controller: OCDefaultMediaReceiverController!, mediaStatusDidUpdate mediaStatus: OCMediaStatus!) {
@@ -247,8 +243,8 @@ extension ControlWindowController: OCDefaultMediaReceiverControllerDelegate {
 
 extension ControlWindowController: NSWindowDelegate {
     override func windowDidLoad() {
-        if (device != nil) {
-            prepareUI(forDevice: self.device!)
+        if let device = device {
+            prepareUI(forDevice: device)
         }
     }
 }
