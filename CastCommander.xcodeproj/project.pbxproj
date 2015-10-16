@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6422E64F1A3157C200728A95 /* OpenCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6422E64C1A3157B700728A95 /* OpenCast.framework */; };
-		6422E6531A315A9900728A95 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6422E6521A315A9900728A95 /* Info.plist */; };
 		6422E6571A315BF200728A95 /* OpenCast.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6422E64C1A3157B700728A95 /* OpenCast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64463CD9198400B40074757F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64463CD8198400B40074757F /* AppDelegate.swift */; };
 		64463CDB198400B40074757F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64463CDA198400B40074757F /* Images.xcassets */; };
@@ -159,7 +158,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Adam Jensen";
 				TargetAttributes = {
 					64463CD0198400B40074757F = {
@@ -216,7 +215,6 @@
 				64463CDB198400B40074757F /* Images.xcassets in Resources */,
 				645C127B1985A9A100CF23B3 /* MediaWindowController.xib in Resources */,
 				64463CDE198400B50074757F /* MainMenu.xib in Resources */,
-				6422E6531A315A9900728A95 /* Info.plist in Resources */,
 				64463D0719844FB10074757F /* ControlWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +265,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -336,6 +335,7 @@
 				INFOPLIST_FILE = CastCommander/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.linuxguy.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CastCommander/Bridging-Header.h";
 			};
@@ -353,6 +353,7 @@
 				INFOPLIST_FILE = CastCommander/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.linuxguy.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CastCommander/Bridging-Header.h";
 			};
